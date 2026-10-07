@@ -110,6 +110,7 @@ export default async function decorate(block) {
         <div class="product-details__tagline pdp-tagline" aria-label="Promotional offer"></div>
         <div class="product-details__stock" role="status" aria-live="polite"></div>
         <div class="product-details__custom-attribute"></div>
+        <div class="product-details__badge"></div>
         <div class="product-details__price"></div>
         <div class="product-details__gallery"></div>
         <div class="product-details__short-description"></div>
@@ -149,11 +150,16 @@ export default async function decorate(block) {
   const $addToCartStatus = fragment.querySelector('.product-details__add-to-cart-status');
   const $description = fragment.querySelector('.product-details__description');
   const $attributes = fragment.querySelector('.product-details__attributes');
+  const $badge = fragment.querySelector('.product-details__badge');
 
   block.replaceChildren(fragment);
 
   if ($tagline) {
     $tagline.textContent = 'Free shipping on orders over $50';
+  }
+
+  if ($badge) {
+    $badge.textContent = 'Best Seller!';
   }
 
   // eslint-disable-next-line no-shadow
@@ -168,6 +174,7 @@ export default async function decorate(block) {
     }
   }, { eager: true });
 
+  // eslint-disable-next-line no-shadow
   events.on('pdp/data', (product) => {
     if (!product) return;
     const value = product.metaTitle;

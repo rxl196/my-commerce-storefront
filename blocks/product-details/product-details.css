@@ -58,6 +58,23 @@
   color: #444;
 }
 
+.product-details__badge {
+  display: inline-block;
+  padding: 0.75rem;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  border: #2d7d2d 1px solid;
+  border-radius: 2rem;
+  background-color: green;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.product-details__badge:hover {
+  background-color: darkgreen;
+}
+
 .product-details__price {
   margin-top: var(--spacing-medium);
 }
